@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/27598f3c44.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>CatWeb</title>
+
+  <style>
+    body {
+      font-family: 'Quicksand';
+      background-color: rgb(231, 218, 223);
+      color: rgb(95, 79, 79);
+    }
+
+    .title {
+      font-family: 'Quicksand';
+      font-weight: 700;
+    }
+
+    .coracao {
+      position: absolute;
+      font-size: 100px;
+      color: red;
+    }
+
+    .padding {
+      padding-left: 130px
+    }
+
+    .padding2 {
+      padding-left: 250px
+    }
+
+    .padding3 {
+      padding-left: 290px;
+    }
+
+    h2.title {
+      font-size: 2.8rem;
+      font-weight: 500;
+    }
+
+    h1.title {
+      font-size: 2.8rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="padding" class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-4 order-lg-1">
+        <div class="padding3"><iframe src="https://giphy.com/embed/q74A46mcYR55W1aRRV" width="200" height="250"
+            frameborder="0" class="giphy-embed"></iframe></div>
+      </div>
+      <div class="col-lg-4 order-lg-1">
+        <div class="p-6">
+          <h2 class="display-4 title">WebCat</h2>
+          <p><i>Neste site, você poderá fazer carinho em um gato, caso você não tenha um deitado em cima do teclado do
+              seu notebook.</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-9 order-lg-1">
+        <div class="p-6">
+          <h1 class="padding2 title">Cat Moment</h1>
+          <p><i class="padding2">Abaixo contém uma playlist para você curtir esse momento ainda mais.</i></p>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-6">
+                <iframe class="padding2" class="style=" border-radius:12px" alt="Gif 1" class="img-fluid"
+                  src="https://open.spotify.com/embed/playlist/07rMyKGNN2SmHcYAokcWH3?utm_source=generator" width="550"
+                  height="152" frameborder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+              </div>
+              <div class="col-sm-6 text-right">
+                <iframe alt="Gif 2" src="https://giphy.com/embed/YPfOvNhUqrYlqW0W9h" width="200" height="210"
+                  frameborder="0" class="giphy-embed"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-11 order-lg-1">
+        <div class="p-2">
+          <h4 class="padding display-5 title">Clique no seu gatinho preferido e aproveite o momento💕.</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- catinhos -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 p-3">
+        <img src="Picsart_23-06-23_01-46-34-712.jpg" class="img-fluid rounded-circle cat-image" alt="Imagem"></img>
+      </div>
+
+      <div class="col-sm-4 p-3">
+        <img src="Picsart_23-06-23_01-46-23-508.jpg" class="img-fluid rounded-circle cat-image" alt="Imagem"></img>
+      </div>
+
+      <div class="col-sm-4 p-3">
+        <img src="Picsart_23-06-23_01-44-07-826.jpg" class="img-fluid rounded-circle cat-image" alt="Imagem"></img>
+      </div>
+    </div>
+  </div>
+
+  <!-- corações -->
+  <script>
+    $(document).ready(function () {
+      $('.cat-image').click(function () {
+        var coracao = $('<span class="coracao">💖</span>');
+        var posicaoInicial = {
+          top: $(this).offset().top,
+          left: $(this).offset().left
+        };
+
+        $('body').append(coracao);
+
+        coracao.css({
+          top: posicaoInicial.top + 'px',
+          left: posicaoInicial.left + 'px'
+        });
+
+        coracao.animate(
+          {
+            top: posicaoInicial.top - 100,
+            opacity: 0
+          },
+          2500,
+          function () {
+            coracao.remove();
+          }
+        );
+
+        for (var i = 1; i < 3; i++) {
+          setTimeout(function () {
+            var novoCore = coracao.clone();
+            $('body').append(novoCore);
+
+            novoCore.css({
+              top: posicaoInicial.top + 'px',
+              left: posicaoInicial.left + 'px'
+            });
+
+            novoCore.animate(
+              {
+                top: posicaoInicial.top - 100,
+                opacity: 0
+              },
+              3000,
+              function () {
+                novoCore.remove();
+              }
+            );
+          }, i * 200);
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
